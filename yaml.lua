@@ -17,17 +17,17 @@ Generator.tablePrintValue =function (self, value, indent, done)
 
     local list ={}
     for key in pairs (value) do
-      list[#list+1] =key
+      list[#list+1] = key
     end
     table.sort(list, function(a, b) return tostring(a) < tostring(b) end)
 
     local rep ="\n"
-    for _, key in ipairs (list) do
+    for _, key in ipairs(list) do
       local keyRep
-      if type(key)=="number" then
-        keyRep ="- "
+      if type(key) =="number" then
+        keyRep = "- "
       else
-        keyRep =tostring(key)..": "
+        keyRep = tostring(key)..": "
       end
       rep = rep..string.format(
         "%s%s%s\n",
@@ -608,9 +608,9 @@ exports.eval = function(str)
 end
 
 exports.dump = function(table)
-  local generator =Generator:new()
-  local result =generator:tablePrintValue(table)
-  result =trimBlankLine(result)
+  local generator = Generator:new()
+  local result = generator:tablePrintValue(table)
+  result = trimBlankLine(result)
   return result
 end
 
